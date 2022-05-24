@@ -48,6 +48,13 @@ function checkWinner(playerSelection, computerSelection) {
   }
 }
 
+function logRound(playerChoice,computerChoice,winner,i){
+  document.getElementById('round').innerHTML = "Round: " + i;
+  document.getElementById('player').innerHTML = "Player Chose: " + playerChoice;
+  document.getElementById('computer').innerHTML = "Computer Chose: " + computerChoice;
+  document.getElementById('winner').innerHTML = winner;
+}
+
 function logWins(){
   let playerWins = winners.filter((item) => item == "You win").length;
   let compWins = winners.filter((item) => item == "You lose").length;
@@ -56,11 +63,4 @@ function logWins(){
   document.getElementById('player').innerHTML = "Player wins: " + playerWins;
   document.getElementById('computer').innerHTML = "Computer wins: " + compWins;
   document.getElementById('winner').innerHTML = "Ties: " + ties;
-}
-
-function logRound(playerChoice,computerChoice,winner,i){
-  document.getElementById('round').innerHTML = "Round: " + i;
-  document.getElementById('player').innerHTML = "Player Chose: " + playerChoice;
-  document.getElementById('computer').innerHTML = "Computer Chose: " + computerChoice;
-  document.getElementById('winner').innerHTML = winner;
 }
