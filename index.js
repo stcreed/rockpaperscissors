@@ -14,9 +14,15 @@ function playRound(choice) {
     const winner = checkWinner(playerSelection, computerSelection);
     winners.push(winner);
     logRound(playerSelection, computerSelection, winner, i);
+    if(round === 5) {
+      console.log(round);
+      logWins();
+    }
     round = i + 1;
     return;
 }}
+
+
 
 function computerChoice() {
   const compNum = Math.floor(Math.random() * 3) + 1;
@@ -46,15 +52,15 @@ function logWins(){
   let playerWins = winners.filter((item) => item == "You win").length;
   let compWins = winners.filter((item) => item == "You lose").length;
   let ties = winners.filter((item) => item == "Draw").length;
-  console.log("Results:");
-  console.log("Player wins: ",playerWins);
-  console.log("Computer wins: ",compWins);
-  console.log("Ties: ",ties);
+  document.getElementById('round').innerHTML = "Results: ";
+  document.getElementById('player').innerHTML = "Player wins: " + playerWins;
+  document.getElementById('computer').innerHTML = "Computer wins: " + compWins;
+  document.getElementById('winner').innerHTML = "Ties: " + ties;
 }
 
 function logRound(playerChoice,computerChoice,winner,i){
-  console.log("Round: ",i);
-  console.log("Player chose: ",playerChoice);
-  console.log("Computer Chose: ",computerChoice);
-  console.log(winner);
+  document.getElementById('round').innerHTML = "Round: " + i;
+  document.getElementById('player').innerHTML = "Player Chose: " + playerChoice;
+  document.getElementById('computer').innerHTML = "Computer Chose: " + computerChoice;
+  document.getElementById('winner').innerHTML = winner;
 }
